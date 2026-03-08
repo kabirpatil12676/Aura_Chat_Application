@@ -1,0 +1,260 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+
+    /* Aura Design System */
+    --aura-bg:        #090a12;
+    --aura-surface:   #0f1120;
+    --aura-surface2:  #141627;
+    --aura-border:    rgba(124, 58, 237, 0.15);
+    --aura-accent:    #7c3aed;
+    --aura-accent2:   #4f46e5;
+    --aura-text:      #e8e9f0;
+    --aura-muted:     #6b7280;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', 'Poppins', sans-serif;
+  }
+}
+
+/* ─── Scrollbar ─── */
+.scrollbar-hidden::-webkit-scrollbar { width: 0; height: 0; }
+.scrollbar-hidden { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ─── Typography ─── */
+.poppins-medium { font-family: "Poppins", sans-serif; font-weight: 500; font-style: normal; }
+
+/* ─── Gradient text ─── */
+.gradient-text {
+  background: linear-gradient(135deg, #a78bfa 0%, #818cf8 50%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Glassmorphism ─── */
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-dark {
+  background: rgba(10, 11, 20, 0.7);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(124, 58, 237, 0.15);
+}
+
+/* ─── Aura-themed input ─── */
+.aura-input {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #e8e9f0 !important;
+  border-radius: 0.75rem !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.aura-input:focus {
+  border-color: rgba(124, 58, 237, 0.7) !important;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15) !important;
+  outline: none !important;
+}
+.aura-input::placeholder { color: #6b7280; }
+
+/* ─── Aura button ─── */
+.aura-btn {
+  background: linear-gradient(135deg, #7c3aed, #4f46e5);
+  border: none;
+  color: #fff;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: opacity 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+  box-shadow: 0 4px 24px rgba(124, 58, 237, 0.35);
+}
+.aura-btn:hover {
+  opacity: 0.92;
+  box-shadow: 0 6px 32px rgba(124, 58, 237, 0.5);
+  transform: translateY(-1px);
+}
+.aura-btn:active { transform: translateY(0); }
+
+/* ─── Keyframes ─── */
+@keyframes aura-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.4); }
+  50%       { box-shadow: 0 0 0 8px rgba(124, 58, 237, 0); }
+}
+
+@keyframes aura-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes aura-orb {
+  0%   { transform: translate(0, 0) scale(1); }
+  33%  { transform: translate(30px, -30px) scale(1.05); }
+  66%  { transform: translate(-20px, 20px) scale(0.97); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes slide-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  15%       { transform: translateX(-8px); }
+  35%       { transform: translateX(8px); }
+  55%       { transform: translateX(-5px); }
+  75%       { transform: translateX(5px); }
+}
+
+.animate-aura-pulse   { animation: aura-pulse 2s infinite; }
+.animate-aura-float   { animation: aura-float 4s ease-in-out infinite; }
+.animate-aura-orb     { animation: aura-orb 12s ease-in-out infinite; }
+.animate-slide-in-up  { animation: slide-in-up 0.5s ease forwards; }
+.animate-fade-in      { animation: fade-in 0.4s ease forwards; }
+.animate-shake        { animation: shake 0.5s ease forwards; }
+
+/* ─── Emoji picker theme ─── */
+.EmojiPickerReact {
+  --epr-bg-color: #111224 !important;
+  --epr-category-label-bg-color: #111224 !important;
+  --epr-search-input-bg-color: rgba(255,255,255,0.06) !important;
+  --epr-text-color: #e8e9f0 !important;
+}
+
+/* ─── Message bubble ─── */
+.aura-msg-sent {
+  background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
+  border-radius: 1.25rem 1.25rem 0.25rem 1.25rem;
+}
+.aura-msg-received {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.25rem 1.25rem 1.25rem 0.25rem;
+}
+
+/* ─── Sidebar glow border ─── */
+.aura-sidebar-border {
+  border-right: 1px solid rgba(124, 58, 237, 0.12);
+}
+
+/* ─── Radix Dialog overlay ─── */
+[data-radix-popper-content-wrapper] {
+  z-index: 9999 !important;
+}
+
+/* Dialog backdrop */
+[data-radix-dialog-overlay] {
+  background: rgba(5, 6, 14, 0.75) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+/* Dialog content slide-in */
+[data-radix-dialog-content] {
+  animation: slide-in-up 0.25s ease forwards !important;
+}
+
+/* ─── Multipleselect glass override ─── */
+.cmdk-input,
+[cmdk-input] {
+  background: rgba(255,255,255,0.04) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  color: #e8e9f0 !important;
+}
+
+/* Input placeholder */
+input[placeholder]::placeholder,
+textarea::placeholder {
+  color: #6b7280 !important;
+}
+
+/* ─── Selection state in message area ─── */
+::selection {
+  background: rgba(124,58,237,0.35);
+  color: #fff;
+}
+
+/* ─── Tooltip content ─── */
+[data-radix-tooltip-content] {
+  background: rgba(15, 17, 32, 0.95) !important;
+  border: 1px solid rgba(124,58,237,0.2) !important;
+  backdrop-filter: blur(12px) !important;
+  border-radius: 0.5rem !important;
+  color: #e8e9f0 !important;
+  font-size: 12px !important;
+}
+
+/* ─── Smooth page transitions ─── */
+.page-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
